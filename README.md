@@ -25,7 +25,7 @@ $ bower install activity --save
 
 ## Usage
 
-At the end of your code, right before `</body>`, add the following:
+At the end of your code, right before `</body>`, call the following:
 
 ```javascript
 Activity.detect();
@@ -34,12 +34,12 @@ Activity.detect();
 Once this is done, you'll be able to detect user activity by listening to either the `user_active` or `user_inactive` events, as shown below:
 
 ```javascript
-window.addEventListener('user_active', function () {
-	console.log("The user is active!");
+Activity.on('active', function () {
+  console.log("The user is active!");
 });
 
-window.addEventListener('user_inactive', function () {
-	console.log("The user is inactive!");
+Activity.on('inactive', function () {
+  console.log("The user is inactive!");
 });
 ```
 

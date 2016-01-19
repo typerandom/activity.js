@@ -255,14 +255,23 @@
 	
 	  Object.freeze(Activity.State);
 	
-	  // Method that helps with setting up the user monitor.
-	  // Forwards all user monitoring events to the window scope.
-	  Activity.detect = function detect(options) {
-	    if (Activity._instance) {
-	      return false;
+	  var instance = null;
+	  function resolveInstance(options) {
+	    return !instance ? instance = new Activity(options) : instance;
+	  }
+	
+	  Activity.configure = function configure(options) {
+	    return resolveInstance(options);
+	  };
+	
+	  Activity.detect = function detect() {
+	    var instance = resolveInstance();
+	
+	    if (instance.initialized) {
+	      return true;
 	    }
 	
-	    var instance = Activity._instance = new Activity(options);
+	    instance.initialized = true;
 	
 	    instance.on('inactive', function () {
 	      window.dispatchEvent(new CustomEvent('user_inactive'));
@@ -277,26 +286,12 @@
 	    return true;
 	  };
 	
-	  // Listen to a event.
 	  Activity.on = function on(name, listener) {
-	    var instance = Activity._instance;
-	
-	    if (!instance) {
-	      throw new Error('Activity.detect() hasn\'t been called.');
-	    }
-	
-	    return instance.on(event, handler);
+	    return resolveInstance().on(name, listener);
 	  };
 	
-	  // Get activity state.
 	  Activity.state = function state() {
-	    var instance = Activity._instance;
-	
-	    if (!instance) {
-	      throw new Error('Activity.detect() hasn\'t been called.');
-	    }
-	
-	    return instance.state();
+	    return resolveInstance().state();
 	  };
 	
 	  // Replays the current user state to all event listeners.

@@ -1,0 +1,18 @@
+<html>
+<head>
+	<script src="../dist/activity.js"></script>
+	<script>
+		Activity.on('active', function () {
+		  console.log("The user is active!");
+		});
+
+		Activity.on('inactive', function () {
+		  console.log("The user is inactive!");
+		});
+
+		Activity.detect();
+	</script>
+</head>
+<body>
+</body>
+</html>
