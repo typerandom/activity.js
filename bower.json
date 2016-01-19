@@ -1,5 +1,5 @@
 {
-  "name": "activityjs",
+  "name": "activity",
   "version": "0.5.0",
   "main": [
     "dist/activity.min.js"
