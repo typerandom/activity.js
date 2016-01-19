@@ -1,0 +1,21 @@
+{
+  "name": "activityjs",
+  "version": "0.5.0",
+  "main": [
+    "dist/activity.min.js"
+  ],
+  "keywords": [
+    "activity",
+    "monitoring",
+    "behavioural"
+  ],
+  "ignore": [
+    ".tmp",
+    "build",
+    "docs",
+    "example",
+    "src"
+  ],
+  "dependencies": {
+  }
+}
