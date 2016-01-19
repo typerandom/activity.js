@@ -6,7 +6,7 @@ Know when your users are using your site.
 
 * Detects inactive keyboard.
 * Detects inactive mouse movement.
-* Detects lost window visibility.
+* Detects no window visibility.
 * Detects lost window focus.
 
 ## Installation
