@@ -9,6 +9,10 @@ Know when your users are using your site.
 * Detects no window visibility.
 * Detects lost window focus.
 
+## Why use it?
+
+* Easily enable/disable features that only need to be active when a user is using your site.
+
 ## Installation
 
 Download [the script](https://raw.githubusercontent.com/typerandom/activity.js/master/dist/activity.min.js) and include it on your site:
